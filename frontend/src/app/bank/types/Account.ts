@@ -1,6 +1,6 @@
 import { Customer } from "./Customer";
 
-export class AccountTS {
+export class Account {
     accountId?: string;
     customerId: string;
     balance: number;
@@ -17,5 +17,5 @@ export class AccountTS {
     }
 }
 
-const account = new AccountTS("1",1000.00,"1");
+const account = new Account("1",1000.00,"1");
 account.displayInfo();
