@@ -12,6 +12,6 @@ import { of } from 'rxjs';
 })
 export class CustomersampleComponent {
  
-  customer : CustomerTS = new CustomerTS("Abhishek","abhishek@gmail.com","Abhishek1061", "abcdefg", "Developer", "2");
+  customer : CustomerTS = new CustomerTS("Mohit","mohit@gmail.com","Mohit1061", "root", "Software", "2");
  
 }
