@@ -1,70 +1,86 @@
 package com.wecp.progressive.service;
- 
+
+
 import com.wecp.progressive.dao.CustomerDAO;
+import com.wecp.progressive.dao.CustomerDAOImpl;
 import com.wecp.progressive.entity.Customers;
- 
+
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
- 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 public class CustomerServiceImpl implements CustomerService {
- 
+
+     @Autowired
+     CustomerDAO customerDAO;
+    
     private static List<Customers> customersList = new ArrayList<>();
- 
-    private CustomerDAO customerDAO;
- 
+
     public CustomerServiceImpl(CustomerDAO customerDAO) {
         this.customerDAO = customerDAO;
     }
+
     @Override
     public List<Customers> getAllCustomers() throws SQLException {
-        return null;
+        return customerDAO.getAllCustomers();
+        //return null;
     }
- 
+
     @Override
     public Customers getCustomerById(int customerId) throws SQLException {
-        return null;
+       return customerDAO.getCustomerById(customerId);
+       //return null;
     }
- 
+
     @Override
     public int addCustomer(Customers customers) throws SQLException {
-        return -1;
+        return customerDAO.addCustomer(customers);
+        
     }
- 
+
     @Override
     public void updateCustomer(Customers customers) throws SQLException {
- 
+        customerDAO.updateCustomer(customers);
+        
     }
- 
+
     @Override
     public void deleteCustomer(int customerId) throws SQLException {
- 
+        customerDAO.deleteCustomer(customerId);
+        //return null;
     }
- 
+
     @Override
     public List<Customers> getAllCustomersSortedByName() throws SQLException {
-        return null;
+        List<Customers> sortedCustomers = customerDAO.getAllCustomers();
+        if (sortedCustomers != null) {
+            Collections.sort(sortedCustomers);
+        }
+        return sortedCustomers;
     }
- 
+
     @Override
     public List<Customers> getAllCustomersFromArrayList() {
         return customersList;
     }
- 
+
     @Override
     public List<Customers> addCustomersToArrayList(Customers customers) {
         customersList.add(customers);
         return customersList;
     }
- 
+
     @Override
     public List<Customers> getAllCustomersSortedByNameFromArrayList(){
         List<Customers> sortedCustomers = customersList;
         Collections.sort(sortedCustomers);
         return sortedCustomers;
     }
- 
+
     @Override
     public void emptyArrayList() {
         customersList = new ArrayList<>();

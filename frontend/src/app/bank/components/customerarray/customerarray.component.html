@@ -1,11 +1,8 @@
-
-    <div *ngFor="let customer of customers">
-          <li><strong>ID: </strong><input type="text" name="customerId">{{customer.customerId}}</li>
-          <li><strong>Name: </strong><input type="text" name="name">{{customer.name}}</li>
-          <li><strong>Email: </strong><input type="email" name="email">{{customer.email}}</li>
-          <li><strong>Username: </strong><input type="text" name="username">{{customer.username}}</li>
-          <li><strong>Password: </strong><input type="password" name="password">{{customer.password}}</li>
-          <li><strong>Role: </strong><input type="text" name="role">{{customer.role}}</li>
-        </ul>
-    </div>
-  
+<div *ngFor="let customer of customers">
+  <p>{{customer.customerId}}</p>
+  <p>{{customer.name}}</p>
+  <p>{{customer.email}}</p>
+  <p>{{customer.password}}</p>
+  <p>{{customer.username}}</p>
+  <p>{{customer.role}}</p>
+</div>
