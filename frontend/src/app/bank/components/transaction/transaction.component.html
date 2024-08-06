@@ -15,7 +15,7 @@
         *ngFor="let account of accounts$ | async"
         [ngValue]="account"
       >
-        {{ account.accountId }}
+        {{ account.customer.name }}
       </option>
     </select>
   </div>
